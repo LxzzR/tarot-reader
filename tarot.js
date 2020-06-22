@@ -1,7 +1,8 @@
 // NAMESPACE OBJECT 
 const app = {};
 
-// HANDLES USER CHOICE
+// HANDLES USER CHOICE EVENT LISTENERS
+// Single Card Spread
 app.handleOneCard = () => {
   $('#one').on('click', () => {
     app.showCards();
@@ -9,6 +10,7 @@ app.handleOneCard = () => {
   })
 }
 
+// Three Card Spread
 app.handleThreeCards = () => {
   $('#three').on('click', () => {
     app.showCards();
@@ -18,11 +20,11 @@ app.handleThreeCards = () => {
 
 // REMOVES USER BUTTON CONTAINER AND SHOWS TAROT CARD CONTAINTER
 app.showCards = () => {
-  $('.users-choice').addClass('hide');
   $('.tarot').removeClass('hide');
+  $('.users-choice').addClass('hide');
 }
 
-// HANDLES EVENT LISTENER FOR INFORMATION BTN
+// HANDLES EVENT LISTENER TO DISPLAY INFO ABOUT THE USER OPTIONS
 app.handleInfoBtn = () => {
   $('.info-btn').on('click', () => {
     $('.info-modal').removeClass('hide');
@@ -37,12 +39,14 @@ app.getTarot = (userOption) => {
     method: 'GET',
     dataType: 'json',
   }).then(function(res) {
+    // Displays api data on the page
     app.displayTarot(res, userOption);
+    // Handles click event to open tarot modal
     app.handleOpenModal(res);
   })
 }
 
-// DISPLAYS CARD LAYOUT
+// DISPLAYS TAROT CARD API DATA ON PAGE
 app.displayTarot = (res, userOption) => {
   if (userOption === 'random_card') {
     $('.tarot').html(app.cardHtml(res, 0, userOption));
@@ -70,25 +74,27 @@ app.cardHtml = (res, num, title) => {
     <div class="tarot-card">
       <h2>${tarot.split('-').join(' ')}</h2>
       <button id="${tarot}" class="img-wrapper" aria-label="first card">
-        <img src="${tarotObj.image}" alt="${res[num].name}" />
+        <img src="${tarotObj.image}" alt="${tarotObj.name}" />
       </button>
-      <h3 class="card-name">${res[num].name.split('-').join(' ')}</h3>
     </div>
     `;
 }
+// RESUABLE HTML RETURN ENDS --
 
-// HANDLES MODAL POP-POP EVENT LISTENER AND REVEALS CARD
+// HANDLES MODAL EVENT LISTENER AND REVEALS INFO ABOUT CURRENT CARD
 app.handleOpenModal = (res) => {
   $('.img-wrapper').click(function (e) {
+    const target = (e.currentTarget);
     const id = (e.currentTarget.id);
-    $(e.currentTarget).addClass('clicked');
+    $(target).addClass('clicked');
     $('.tarot-modal-box').removeClass('hide');
     $('.tarot-modal').removeClass('hide');
+    // Displays API data in modal
     app.displayModal(res, id);
   });
 }
 
-// POPULATES MODAL CONTENT
+// DISPLAYS CLICKED CARD API DATA
 app.displayModal = (res, id) => {
   let num;
   // Checks clicked card and set variables accordingly
@@ -102,31 +108,35 @@ app.displayModal = (res, id) => {
   app.generateModalContent(res, num, id);
 }
 
-// GENERATES MODAL CONTENT
+
+// POPULATES MODAL CONTENT
 app.generateModalContent = (res, num, id) => {
   const tarotObj = res[num];
   $('.modal-img').attr('src', `${tarotObj.image}`, 'alt', `${tarotObj.name}`);
-  $('.modal-title').text(id);
+  $('.modal-title').text(id.split('-').join(' '));
   $('.modal-card').text(`${tarotObj.name.split('-').join(' ')}`);
   $('.keywords.upright').text(`Positive: ${tarotObj.upright}`);
   $('.keywords.reversed').text(`Reversed: ${tarotObj.reversed}`);
   $('.summary').text(`${tarotObj.full_meaning}`);
 }
 
-// HANDLES MODAL CLOSING EVENT LISTENERS
+
+// HANDLES MODAL-CLOSE EVENT LISTENERS
 app.handleLeaveModal = (modal) => {
-  const closeModal = () => {
-    $(`.${modal}-modal`).addClass('hide');
-    $(`.${modal}-modal-box`).addClass('hide');
-  }
   // Handles click on close button
   $(`.${modal}-close`).on('click', () => {
-    closeModal();
+    app.closeModal(modal);
   })
   // Handles click outside content to close modal 
   $(`.${modal}-modal`).on('click', () => {
-    closeModal();
+    app.closeModal(modal);
   })
+}
+
+// CLOSES MODALS 
+app.closeModal = (modal) => {
+  $(`.${modal}-modal`).addClass('hide');
+  $(`.${modal}-modal-box`).addClass('hide');
 }
 
 // INITIALIZES APPLICATION
@@ -140,3 +150,5 @@ app.init = () => {
 
 // CALLS THE APPLICATION
 app.init();
+
+

@@ -26,29 +26,40 @@
   <div class="users-choice">
     <h2>Choose your journey...</h2>
     <div class="buttons">
-      <button id="one" class="user-option">One Card Reading</button>
-      <button id="three" class="user-option">Three Card Spread</button>
+      <button id="one" class="user-option-btn">One Card Reading</button>
+      <button id="three" class="user-option-btn">Three Card Spread</button>
       <button class="info-btn" aria-label="What's this?">
         <i class="far fa-question-circle"></i>
       </button>
     </div>
   </div>
 
+    <div class="info-modal-box hide">
+      <div class="decoration">
+        <div class="spread">
+          <h2>Single Card Reading</h2>
+          <p>Single card is drawn for your reflection and meditation. Take your time here, there is no hurry.</p>
+        </div>
+        <div class="spread">
+          <h2>Three Card Spread</h2>
+          <p>Three cards present you with the opportunity to discover connections between the tarot, the past, the present, and the future.</p>
+          <button class="info-close" aria-label="back to main content">
+            <i class="far fa-times-circle"></i>
+          </button>
+        </div>
+
+    </div>
+    </div>
+  </div>
+
   <button class="info-modal hide" aria-label="back to main content">
   </button>
 
-  <div class="info-modal-box hide">
-    <h2>Single Card Reading</h2>
-    <p>Reflect on one card</p>
-    <h2>Three Card Spread</h2>
-    <p>Draw three cards and reflect on their meanings in realation to your past, present, and future.</p>
-    <button class="info-close" aria-label="back to main content">
-      <i class="far fa-times-circle"></i>
-    </button>
-  </div>
+
 
   <!-- JS populated tarot card spread -->
   <div class="tarot hide"></div>
+  .
 
   <!-- Modal background -->
   <button class="tarot-modal hide" aria-label="back to main content">

@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #111;
+  color: rgb(223, 223, 212);
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  padding: 50px;
+}
+
+h1
+{
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: 'Josefin Slab', serif;
+  font-size: 2rem;
+  text-align: center;
+  flex-basis: 100%;
+}
+
+h2 {
+  text-transform: capitalize;
+}
+
+h3 {
+  color: lightgray;
+  text-transform: uppercase;
+}
+
+.choose-journey {
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto;
+  justify-content: center;
+  max-width: 800px;
+  padding-top: 100px;
+}
+
+.choose-journey h2 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.user-option {
+  background: #111;
+  border: 1px solid lightgray;
+  color: lightgray;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  margin: 35px 15px;
+  padding: 20px 35px;
+}
+
+/* === INFO MODAL === */
+.info-modal {
+  background: #111;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.info-modal-box {
+  background: #111;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  color: lightgray;
+  left: 50%;
+  margin: auto;
+  max-width: 600px;
+  width: 60%;
+  padding: 100px 50px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.info-btn,
+.info-close {
+  background: transparent;
+  border: none;
+  color: lightgray;
+  cursor: pointer;
+  font-size: 2rem;
+  right: 15px;
+  top: 5px;
+  padding: 20px;
+  position: absolute;
+  transition: color 250ms;
+}
+
+.info-btn:hover,
+.info-close:hover
+.tarot-close {
+  color: grey;
+}
+
+/* === TAROT CARD STYLES === */
+.tarot {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+  padding-top: 75px;
+  max-width: 900px;
+}
+
+.tarot-card {
+  display: flex;
+  flex-basis: 33%;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+.tarot-card h2,
+.tarot-card h3 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+/* Card container */
+.img-wrapper {
+  background: transparent;
+  border: none;
+  height: 420px;
+  flex-basis: 100%;
+  margin: 25px 0;
+  max-width: 240px;
+  transform: rotatey(.5turn);
+  transition: transform 500ms;
+  position: relative;
+}
+
+.img-wrapper:hover {
+  cursor: pointer;
+}
+
+/* === TAROT CARD ANIMATIONS === */
+/* Back of card */
+.img-wrapper::before {
+  background: url('./assets/tarot.jpg') no-repeat center;
+  background-size: cover;
+  border: 1px solid rgba(63, 55, 42, 0.9);
+  border-radius: 5px;
+  box-shadow: inset 0 0 150px rgba(61, 49, 29, 0.5);
+  content: '';
+  height: 101%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  transform: rotateY(.5turn);
+  transition: transform 1000ms, opacity 500ms;
+  width: 101.5%;
+  z-index: 2;
+}
+
+.img-wrapper:hover::before {
+  opacity: 0;
+  transition: transform 1000ms, opacity 500ms;
+  transform: rotateY(1turn);
+}
+
+/* Tarot card image styles */
+.img-wrapper img {
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  box-sizing: content-box;
+  box-shadow: 0 10px 45px rgb(18, 18, 18);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 1000ms;
+  transform: rotateY(1turn);
+}
+
+.img-wrapper:hover img {
+  transform: rotateY(.5turn);
+  transition: transform 1000ms;
+}
+
+/* Clicked  */
+.img-wrapper.clicked {
+  transform: rotateY(1turn);
+}
+
+/* front of card */
+.img-wrapper.clicked img {
+  transition: transform 300ms;
+  transform: rotateY(1turn);
+}
+
+.img-wrapper.clicked:hover img {
+  transform: rotateY(.5turn);
+  transition: transform 300ms;
+}
+
+/* Back of card */
+.img-wrapper.clicked::before {
+  background: url('./assets/tarot-hands.jpg') no-repeat center;
+  background-size: cover;
+  border: 1px solid rgba(63, 55, 42, 0.9);
+  border-radius: 5px;
+  box-shadow: inset 0 0 200px rgb(1, 1, 1);
+  content: '';
+  height: 101%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transform: rotateY(.5turn);
+  transition: opacity 250ms, transform 300ms;
+  width: 101.5%;
+}
+
+.img-wrapper.clicked:hover::before {
+  opacity: 0.4;
+  transform: rotateY(1turn);
+  transition: opacity 250ms, transform 300ms;
+} 
+
+/* === TAROT MODAL === */
+.tarot-modal {
+  background: #111;
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.modal-img-wrapper {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.modal-img {
+  border: 4px solid #333;
+  box-sizing: content-box;
+  flex-basis: 50%;
+  margin: 15px;
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.tarot-modal-box {
+  background: whitesmoke;
+  border-radius: 10px;
+  box-shadow: inset 0 0 150px rgba(201, 189, 168, 0.4);
+  color: #222;
+  display: flex;
+  flex-flow: row wrap;
+  left: 50%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  z-index: 4;
+}
+
+.tarot-modal-box h2 {
+  flex-basis: 100%;
+}
+
+.img-wrapper-modal {
+  flex-basis: 50%;
+}
+
+.modal-copy {
+  flex-basis: 50%;
+  padding: 50px 0;
+  position: relative;
+}
+
+.tarot-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 10px;
+  position: absolute;
+  right: 5px;
+  top: -45px;
+  transition: color 250ms;
+}
+
+.modal-copy h2 {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.modal-copy p {
+  margin: 15px 0;
+}
+
+/* Hide */
+.hide {
+  display: none;
+}

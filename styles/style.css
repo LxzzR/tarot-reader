@@ -264,7 +264,7 @@ h3 {
 
 /* Card Back */
 .img-wrapper::before {
-  background: url('./assets/tarot.jpg') no-repeat center;
+  background: url('../assets/tarot.jpg') no-repeat center;
   background-size: cover;
   border: 1px solid #666;
   border-radius: 7px;
@@ -323,7 +323,7 @@ h3 {
 
 /* Card Back */
 .img-wrapper.clicked::before {
-  background: url('./assets/tarot-hands.jpg') no-repeat center;
+  background: url('../assets/tarot-hands.jpg') no-repeat center;
   background-size: cover;
   border: 1px solid rgba(63, 55, 42, 0.9);
   border-radius: 5px;

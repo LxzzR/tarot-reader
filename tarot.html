@@ -3,70 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
-  <!-- Sans Serif -->
+  <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  <!-- Serif -->
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@300&display=swap" rel="stylesheet">
-  <!-- Favicons -->
+  <!-- FAVICONS -->
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
   <link rel="manifest" href="./favicon_io/site.webmanifest">
-  <!-- Stylesheet -->
+  <!-- STYLESHEETS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Font awesome icons -->
+  <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/5b6edc865f.js" crossorigin="anonymous"></script>
   <title>Tarot</title>
 </head>
 
 <body>
-  <h1>Tarot Card Reading</h1>
-  <div class="users-choice">
-    <h2>Choose your journey...</h2>
-    <div class="buttons">
-      <button id="one" class="user-option-btn">One Card Reading</button>
-      <button id="three" class="user-option-btn">Three Card Spread</button>
-      <button class="info-btn" aria-label="What's this?">
-        <i class="far fa-question-circle"></i>
-      </button>
-    </div>
-  </div>
+  <header>
+    <h1>Tarot Card Reading</h1>
+  </header>
 
-    <div class="info-modal-box hide">
-      <div class="decoration">
-        <div class="spread">
-          <h2>Single Card Reading</h2>
-          <p>Single card is drawn for your reflection and meditation. Take your time here, there is no hurry.</p>
-        </div>
-        <div class="spread">
-          <h2>Three Card Spread</h2>
-          <p>Three cards present you with the opportunity to discover connections between the tarot, the past, the present, and the future.</p>
-          <button class="info-close" aria-label="back to main content">
-            <i class="far fa-times-circle"></i>
-          </button>
-        </div>
+  <main>
+  <!-- LANDING -->
+    <section class="users-choice">
+      <h2>Choose your journey...</h2>
 
-    </div>
-    </div>
-  </div>
+      <div class="buttons">
+        <button id="one" class="user-option-btn">One Card Reading</button>
+        <button id="three" class="user-option-btn">Three Card Spread</button>
+        <button class="info-btn" aria-label="More Information">
+          <i class="far fa-question-circle"></i>
+        </button>
+      </div>
+    </section>
 
+  <!-- MODAL BACKGROUND -->
   <button class="info-modal hide" aria-label="back to main content">
   </button>
 
+  <!-- INFORMATION MODAL -->
+  <section class="info-modal-box hide">
+    <div class="decoration">
 
+      <div class="spread">
+        <h2>Single Card Reading</h2>
+        <p>A single card is drawn for your deep reflection and meditation.</p>
+      </div>
 
-  <!-- JS populated tarot card spread -->
-  <div class="tarot hide"></div>
-  .
+      <div class="spread">
+        <h2>Three Card Spread</h2>
+        <p>Three cards present you with the opportunity to discover connections between the tarot, the past, the present, and the future.</p>
+      </div>
 
-  <!-- Modal background -->
+      <div class="spread">
+        <h2>Meditation</h2>
+        <p>This minimalist tarot app assumes some prior understanding of the tarot, and is left intentionally abstract with minimal guidance. Take your time with these cards, there is no rush.</p>
+      </div>
+
+      <button class="info-close" aria-label="back to main content">
+          <i class="far fa-times-circle"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- TAROT SECTION-->
+  <section class="tarot hide"></section>
+  <div class="draw-card hide">
+    <button class="draw">
+      Draw Again
+      <i class="fas fa-redo"></i>
+    </button>
+  </div>
+
+  <!-- TAROT MODAL -->
   <button class="tarot-modal hide" aria-label="back to main content">
-  </button>
+  </button> 
 
-  <!-- Tarot Card Modal content -->
-  <div class="tarot-modal-box hide">
+  <section class="tarot-modal-box hide">
     <h1 class="modal-title"></h1>
 
     <div class="img-wrapper-modal">
@@ -81,17 +94,12 @@
       <button class="close tarot-close" aria-label="close">
         <i class="far fa-times-circle"></i></i>
       </button>
-      <!-- <button class="close" aria-label="close">
-        <i class="far fa-window-close"></i> -->
-      </button>
     </div>
-  </div>
-
-  </div>
-
-  <!-- jQuery Script -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <!-- Local Script  -->
+  </section>
+  </main>
+<!-- JQUERY SCRIPT-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- LOCAL SCRIPTS -->
   <script src="tarot.js"></script>
 </body>
 </html>

@@ -22,6 +22,9 @@ app.handleThreeCards = () => {
 app.showCards = () => {
   $('.tarot').removeClass('hide');
   $('.users-choice').addClass('hide');
+  setTimeout(() => {
+    $('.draw-card').removeClass('hide');
+  }, 3500);
 }
 
 // HANDLES EVENT LISTENER TO DISPLAY INFO ABOUT THE USER OPTIONS
@@ -52,7 +55,7 @@ app.displayTarot = (res, userOption) => {
     $('.tarot').html(app.cardHtml(res, 0, userOption));
   } else if (userOption === 'three_cards') {
     $('.tarot').html(app.cardHtml(res, 0)).append(app.cardHtml(res, 1)).append(app.cardHtml(res, 2));
-    };
+  }
 }
 
 //RETURNS REUSABLE TAROT CARD HTML STAMP  
@@ -139,6 +142,15 @@ app.closeModal = (modal) => {
   $(`.${modal}-modal-box`).addClass('hide');
 }
 
+// HANDLES DRAW AGAIN
+app.handleDraw = () => {
+  $('.draw').on('click', () => {
+    $('.tarot').addClass('hide');
+    $('.draw-card').addClass('hide');
+    $('.users-choice').removeClass('hide');
+  })
+}
+
 // INITIALIZES APPLICATION
 app.init = () => {
   app.handleOneCard();
@@ -146,6 +158,7 @@ app.init = () => {
   app.handleInfoBtn();
   app.handleLeaveModal('info');
   app.handleLeaveModal('tarot');
+  app.handleDraw();
 }
 
 // CALLS THE APPLICATION

@@ -254,7 +254,6 @@ h3 {
   margin: 25px;
   max-width: 260px;
   transform: rotatey(.5turn);
-  transition: transform 250ms;
   position: relative;
 }
 

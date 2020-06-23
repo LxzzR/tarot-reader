@@ -149,6 +149,7 @@ app.handleDraw = () => {
   $('.draw').on('click', () => {
     $('.tarot').addClass('hide');
     $('.draw-card').addClass('hide');
+    $('.users-choice').addClass('animate').addClass('fadeIn');
     $('.users-choice').removeClass('hide');
   })
 }

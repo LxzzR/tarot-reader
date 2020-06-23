@@ -268,7 +268,7 @@ h3 {
   background-size: cover;
   border: 1px solid #666;
   border-radius: 7px;
-  box-shadow: inset 0 0 150px rgba(61, 49, 29, 0.4);
+  box-shadow: inset 0 0 150px rgba(61, 49, 29, 0.3);
   content: '';
   height: 101%;
   top: 0;
@@ -430,4 +430,23 @@ h3 {
 /* === HIDE ELEMENTS === */
 .hide {
   display: none;
+}
+
+
+/* === FADE INTO VEIW === */
+
+.animate {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  animation-name: fadeIn;
 }

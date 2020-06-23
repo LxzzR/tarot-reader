@@ -20,11 +20,13 @@ app.handleThreeCards = () => {
 
 // REMOVES USER BUTTON CONTAINER AND SHOWS TAROT CARD CONTAINTER
 app.showCards = () => {
+  $('.tarot').addClass('animate').addClass('fadeIn');
   $('.tarot').removeClass('hide');
   $('.users-choice').addClass('hide');
   setTimeout(() => {
     $('.draw-card').removeClass('hide');
-  }, 3500);
+    $('.draw-card').addClass('animate').addClass('fadeIn');
+  }, 1000);
 }
 
 // HANDLES EVENT LISTENER TO DISPLAY INFO ABOUT THE USER OPTIONS
@@ -118,7 +120,7 @@ app.generateModalContent = (res, num, id) => {
   $('.modal-img').attr('src', `${tarotObj.image}`, 'alt', `${tarotObj.name}`);
   $('.modal-title').text(id.split('-').join(' '));
   $('.modal-card').text(`${tarotObj.name.split('-').join(' ')}`);
-  $('.keywords.upright').text(`Positive: ${tarotObj.upright}`);
+  $('.keywords.upright').text(`Upright: ${tarotObj.upright}`);
   $('.keywords.reversed').text(`Reversed: ${tarotObj.reversed}`);
   $('.summary').text(`${tarotObj.full_meaning}`);
 }

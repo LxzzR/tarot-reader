@@ -35,6 +35,7 @@ app.handleInfoBtn = () => {
     $('.info-modal-box').addClass('animate').addClass('fadeIn');
     $('.info-modal').removeClass('hide');
     $('.info-modal-box').removeClass('hide');
+    $('.users-choice').addClass('hide');
   })
 }
 
@@ -153,6 +154,7 @@ app.checkTarot = (modal) => {
     $('.draw').removeClass('hide');
   } else if (modal === 'info') {
     $('.tarot').addClass('hide');
+    $('.users-choice').removeClass('hide');
   }
 }
 

@@ -480,6 +480,7 @@ h3 {
     justify-content: center;
   }
 
+  .info-modal,
   .tarot-modal {
     display: none;
   }

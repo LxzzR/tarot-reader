@@ -452,21 +452,9 @@ h3 {
 /* Personal notes: This project's requirement's did non include responsiveness or mobile first. This stylesheet should be refactored to conform with mobile-first best practices.*/
 
 @media all and (max-width: 900px) {
-  .info-modal {
-    height: 140%;
-  }
-
-  .info-modal-box {
-    top: 70%;
-    left: 50%;
-  }
 
   .tarot-card {
     flex-basis: 100%;
-  }
-
-  .tarot-modal {
-    height: 225%;
   }
 
   .tarot-modal-box {
@@ -482,12 +470,18 @@ h3 {
 @media all and (max-width: 650px) {
   .tarot-modal-box {
     justify-content: center;
-    top: 61%;
+  }
+
+  .tarot-modal-box {
+    transform: none;
+    top: 10px;
+    left: 10px;
+    right: 10px;
   }
 
   .img-wrapper-modal,
   .modal-copy {
     flex-basis: 100%;
-    padding: 25px;
+    padding: 20px;
   }
 }

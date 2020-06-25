@@ -93,6 +93,9 @@ app.handleOpenModal = (res) => {
     const target = (e.currentTarget);
     const id = (e.currentTarget.id);
     $(target).addClass('clicked');
+    $('header').addClass('hide');
+    $('.tarot').addClass('hide');
+    $('.draw').addClass('hide');
     $('.tarot-modal-box').removeClass('hide');
     $('.tarot-modal').removeClass('hide');
     // Displays API data in modal
@@ -132,11 +135,23 @@ app.handleLeaveModal = (modal) => {
   // Handles click on close button
   $(`.${modal}-close`).on('click', () => {
     app.closeModal(modal);
+    app.checkTarot(modal); 
   })
   // Handles click outside content to close modal 
   $(`.${modal}-modal`).on('click', () => {
     app.closeModal(modal);
+    app.checkTarot(modal);
   })
+}
+
+// CHECKS MODAL AND REMOVES HIDDEN CLASS
+app.checkTarot = (modal) => {
+  console.log(modal);
+  if (modal = 'tarot') {
+    $('.tarot').removeClass('hide');
+    $('header').removeClass('hide');
+    $('.draw').removeClass('hide');
+  }
 }
 
 // CLOSES MODALS 

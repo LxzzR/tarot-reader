@@ -134,24 +134,24 @@ app.generateModalContent = (res, num, id) => {
 app.handleLeaveModal = (modal) => {
   // Handles click on close button
   $(`.${modal}-close`).on('click', () => {
-    app.closeModal(modal);
     app.checkTarot(modal); 
+    app.closeModal(modal);
   })
   // Handles click outside content to close modal 
   $(`.${modal}-modal`).on('click', () => {
-    app.closeModal(modal);
     app.checkTarot(modal);
+    app.closeModal(modal);
   })
 }
 
 // CHECKS MODAL AND REMOVES HIDDEN CLASS
 app.checkTarot = (modal) => {
   console.log(modal);
-  if (modal = 'tarot') {
+  if (modal === 'tarot') {
     $('.tarot').removeClass('hide');
     $('header').removeClass('hide');
     $('.draw').removeClass('hide');
-  } else if (modal = 'info') {
+  } else if (modal === 'info') {
     $('.tarot').addClass('hide');
   }
 }

@@ -457,6 +457,10 @@ h3 {
     flex-basis: 100%;
   }
 
+  .info-modal-box {
+    width: 75%;
+  }
+
   .tarot-modal-box {
     max-width: 95%;
     top: 40%;
@@ -468,6 +472,10 @@ h3 {
 }
 
 @media all and (max-width: 650px) {
+  .info-modal-box {
+    width: 90%;
+  }
+
   .tarot-modal-box {
     justify-content: center;
   }

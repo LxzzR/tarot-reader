@@ -407,7 +407,7 @@ h3 {
   padding: 10px;
   position: absolute;
   right: 5px;
-  top: -55px;
+  top: 0;
   transition: color 300ms transform 300ms;
 }
 

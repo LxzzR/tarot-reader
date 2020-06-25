@@ -57,6 +57,7 @@ h3 {
 .buttons {
   display: flex;
   flex-basis: 100%;
+  flex-flow: row wrap;
   justify-content: center;
 }
 
@@ -135,7 +136,7 @@ h3 {
   max-width: 800px;
   padding: 5px;
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
 }
@@ -389,12 +390,12 @@ h3 {
   max-height: 100%;
   max-width: 80%;
   object-fit: cover;
+  position: relative;
 }
 
 .modal-copy {
   flex-basis: 50%;
   padding: 50px 0;
-  position: relative;
 }
 
 .tarot-close {
@@ -445,4 +446,48 @@ h3 {
 
 .fadeIn {
   animation-name: fadeIn;
+}
+
+/* === MEDIA QUERIES === */
+/* Personal notes: This project's requirement's did non include responsiveness or mobile first. This stylesheet should be refactored to conform with mobile-first best practices.*/
+
+@media all and (max-width: 900px) {
+  .info-modal {
+    height: 140%;
+  }
+
+  .info-modal-box {
+    top: 70%;
+    left: 50%;
+  }
+
+  .tarot-card {
+    flex-basis: 100%;
+  }
+
+  .tarot-modal {
+    height: 225%;
+  }
+
+  .tarot-modal-box {
+    max-width: 95%;
+    top: 40%;
+  }
+  
+  .tarot-close {
+    top: 10px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .tarot-modal-box {
+    justify-content: center;
+    top: 61%;
+  }
+
+  .img-wrapper-modal,
+  .modal-copy {
+    flex-basis: 100%;
+    padding: 25px;
+  }
 }

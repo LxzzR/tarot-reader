@@ -151,8 +151,12 @@ app.checkTarot = (modal) => {
     $('.tarot').removeClass('hide');
     $('header').removeClass('hide');
     $('.draw').removeClass('hide');
+  } else if (modal = 'info') {
+    $('.tarot').addClass('hide');
   }
 }
+
+
 
 // CLOSES MODALS 
 app.closeModal = (modal) => {

@@ -20,8 +20,8 @@ app.handleThreeCards = () => {
 
 // REMOVES USER BUTTON CONTAINER AND SHOWS TAROT CARD CONTAINTER
 app.showCards = () => {
-  $('.tarot').removeClass('hide');
   $('.tarot').addClass('animate').addClass('fadeIn');
+  $('.tarot').removeClass('hide');
   $('.users-choice').addClass('hide');
   setTimeout(() => {
     $('.draw-card').removeClass('hide');

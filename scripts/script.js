@@ -32,6 +32,7 @@ app.showCards = () => {
 // HANDLES EVENT LISTENER TO DISPLAY INFO ABOUT THE USER OPTIONS
 app.handleInfoBtn = () => {
   $('.info-btn').on('click', () => {
+    $('.info-modal-box').addClass('animate').addClass('fadeIn');
     $('.info-modal').removeClass('hide');
     $('.info-modal-box').removeClass('hide');
   })

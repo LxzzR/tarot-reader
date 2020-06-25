@@ -472,11 +472,17 @@ h3 {
     justify-content: center;
   }
 
+  .tarot-modal {
+    display: none;
+  }
+
   .tarot-modal-box {
-    transform: none;
-    top: 10px;
+    justify-content: center;
     left: 10px;
     right: 10px;
+    top: 10px;
+    transform: none;
+
   }
 
   .img-wrapper-modal,
